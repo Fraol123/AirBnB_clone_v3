@@ -3,6 +3,7 @@
 from datetime import datetime
 import inspect
 import models
+import os
 import pep8 as pycodestyle
 import time
 import unittest
@@ -85,11 +86,8 @@ class TestBaseModel(unittest.TestCase):
         tic = datetime.now()
         inst1 = BaseModel()
         toc = datetime.now()
-        self.assertTrue(tic <= inst1.created_at <= toc)
-        time.sleep(1e-4)
-        tic = datetime.now()
-        inst2 = BaseModel()
-        toc = datetime.now()
+
+
         self.assertTrue(tic <= inst2.created_at <= toc)
         self.assertEqual(inst1.created_at, inst1.updated_at)
         self.assertEqual(inst2.created_at, inst2.updated_at)
@@ -126,6 +124,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(d['__class__'], 'BaseModel')
         self.assertEqual(d['name'], "Holberton")
         self.assertEqual(d['my_number'], 89)
+        self.assertNotIn('_sa_instance_state', d)
 
     def test_to_dict_values(self):
         """test that values in dict returned from to_dict are correct"""
