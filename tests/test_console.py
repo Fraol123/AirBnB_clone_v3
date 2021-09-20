@@ -2,8 +2,9 @@
 """
 Contains the class TestConsoleDocs
 """
-
-import console
+import sys
+sys.path.insert(0, '../console')
+#import ../console
 import inspect
 import pep8
 import unittest
