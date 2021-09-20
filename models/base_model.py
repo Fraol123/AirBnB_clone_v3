@@ -2,13 +2,12 @@
 """
 Contains class BaseModel
 """
-
+import sqlalchemy
 from datetime import datetime
 import models
 from os import getenv
-import sqlalchemy
-from sqlalchemy import Column, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, String, DateTime
 import uuid
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
